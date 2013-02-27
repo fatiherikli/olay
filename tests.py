@@ -43,6 +43,14 @@ class DispatcherTests(unittest.TestCase):
         self.olay.trigger("hello")
         self.assertTrue(_test.foo, 1)
 
+    def test_callback_arguments(self):
+        class _test: foo = 0
+        def _callback(n):
+            _test.foo += n
+        self.olay.on("hello", _callback)
+        self.olay.trigger("hello", 10)
+        self.assertTrue(_test.foo, 10)
+
     def test_unbinding(self):
         from copy import copy
         class _test: foo = 0
