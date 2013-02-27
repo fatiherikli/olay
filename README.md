@@ -20,7 +20,7 @@ Binds a callback to an event. Also supports the decorator way.
 
 #### olay.trigger
 
-Runs the callbacks of the provided event. Supports arguments and keyword arguments.
+Runs the callbacks of the provided event. Supports arguments and keyword arguments for callback functions.
 
     olay.trigger("hello")
     olay.trigger("hello", 1, 2, username="test")
@@ -35,7 +35,7 @@ Binds a callback for triggering just one time.
 
 #### olay.off
 
-Removes a callback from an event if callback is provided, otherwise removes all callbacks.
+Removes a callback from an event if callback is provided, otherwise removes all callbacks of the event.
 
     olay.off("hello")
     olay.off("hello", callback)
