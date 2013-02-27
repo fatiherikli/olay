@@ -62,5 +62,13 @@ class DispatcherTests(unittest.TestCase):
         self.olay.trigger("hello")
         self.assertEqual(_test.foo, 4)
 
+    def test_decorator(self):
+        noop = lambda: None
+        self.olay.on("hello")(noop)
+        events = self.olay._events
+        self.assertIn("hello", events)
+        self.assertIn(noop, events["hello"])
+
+
 if __name__ == "__main__":
     unittest.main()

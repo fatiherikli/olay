@@ -7,10 +7,19 @@ class Dispatcher(object):
     def __init__(self):
         self._events = defaultdict(list)
 
-    def on(self, event, callback):
+    def on(self, event, callback=None):
         """
-        Binds a callback to an event
+        Binds a callback to an event.
+        Also supports the decorator way.
+        Examples:
+            self.olay.on("hello", callable)
+            self.olay.on("hello")(callable)
         """
+        if callback is None:
+            def _decorator(callback):
+                self.on(event, callback)
+            return _decorator
+
         self._events[event].append(callback)
 
     def once(self, event, callback):
