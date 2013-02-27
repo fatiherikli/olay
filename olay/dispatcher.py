@@ -45,5 +45,5 @@ class Dispatcher(object):
         """
         for callback in self._events[event]:
             callback(*args, **kwargs)
-            if hasattr(callback, "once") and callback.once:
+            if getattr(callback, "once", False):
                self.off(event, callback)
