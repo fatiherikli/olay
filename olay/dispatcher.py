@@ -12,8 +12,8 @@ class Dispatcher(object):
         Binds a callback to an event.
         Also supports the decorator way.
         Examples:
-            self.olay.on("hello", callable)
-            self.olay.on("hello")(callable)
+            olay.on("hello", callable)
+            olay.on("hello")(callable)
         """
         if callback is None:
             def _decorator(callback):
@@ -31,8 +31,8 @@ class Dispatcher(object):
 
     def off(self, event, callback=None):
         """
-        Removes a callback if callback is provided,
-        otherwise removes all callbacks.
+        Removes a callback from an event if callback is provided,
+        otherwise removes all callbacks of the event.
         """
         if callback:
             self._events[event].remove(callback)
