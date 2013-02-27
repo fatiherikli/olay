@@ -29,7 +29,7 @@ Runs the callbacks of the provided event. Supports arguments and keyword argumen
 
 Binds a callback for triggering just one time.
 
-    olay.on("hello", callable)
+    olay.once("hello", callable)
     olay.trigger("hello") // worked
     olay.trigger("hello") // not worked
 
